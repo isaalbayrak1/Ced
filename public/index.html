@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="./css/styles.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Başlık -->
+    <header
+      id="header"
+      class="header-initial text-black p-4 shadow-md fixed top-0 w-full z-50"
+    >
+      <div class="container mx-auto flex items-center justify-between">
+        <img id="logo" src="./images/logo.png" alt="Logo" class="h-28 w-auto" />
+        <nav class="flex space-x-8 text-lg">
+          <a
+            href="#"
+            class="nav-link link-initial poppins-regular hover:bg-gray-200 px-4 py-2 rounded transition duration-300"
+            >Profil</a
+          >
+          <a
+            href="#"
+            class="nav-link link-initial poppins-regular hover:bg-gray-200 px-4 py-2 rounded transition duration-300"
+            >Projeler</a
+          >
+          <a
+            href="#"
+            class="nav-link link-initial poppins-regular hover:bg-gray-200 px-4 py-2 rounded transition duration-300"
+            >İletişim</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Ana içerik (Hero Section) -->
+    <main class="bg-cover bg-center h-screen mt-24 relative">
+      <div class="slider-container">
+        <div class="slider-wrapper">
+          <img src="./images/slider5.png" alt="Slider 5" />
+          <img src="./images/slider1.jpg" alt="Slider 1" />
+          <img src="./images/slider2.png" alt="Slider 2" />
+          <img src="./images/slider3.jpg" alt="Slider 3" />
+          <img src="./images/slider4.jpg" alt="Slider 4" />
+        </div>
+      </div>
+      <div
+        class="flex items-center bebas-neue-regular justify-center h-full absolute inset-0"
+      >
+        <h1 class="text-white text-4xl md:text-6xl">CED Architect</h1>
+      </div>
+    </main>
+
+    <!-- Küçük Fotoğraflar ve Başlıklar -->
+    <section class="py-16 bg-gray-100">
+      <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Fotoğraf 1 -->
+        <div class="text-center">
+          <img
+            src="./images/bg.png"
+            alt="Fotoğraf 1"
+            class="mx-auto h-48 w-auto object-cover photo"
+          />
+          <h2 class="mt-4 text-xl poppins-regular">Proje 1</h2>
+        </div>
+
+        <!-- Fotoğraf 2 -->
+        <div class="text-center">
+          <img
+            src="./images/photo.png"
+            alt="Fotoğraf 2"
+            class="mx-auto h-48 w-auto object-cover photo"
+          />
+          <h2 class="mt-4 text-xl poppins-regular">Proje 2</h2>
+        </div>
+
+        <!-- Fotoğraf 3 -->
+        <div class="text-center">
+          <img
+            src="./images/photo.png"
+            alt="Fotoğraf 3"
+            class="mx-auto h-48 w-auto object-cover photo"
+          />
+          <h2 class="mt-4 text-xl poppins-regular">Proje 3</h2>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const sliderWrapper = document.querySelector(".slider-wrapper");
+      const totalImages = document.querySelectorAll(
+        ".slider-wrapper img"
+      ).length;
+      let currentIndex = 0;
+
+      function changeSlide() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        const offset = -currentIndex * 100;
+        sliderWrapper.style.transform = `translateX(${offset}%)`;
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setInterval(changeSlide, 4000); // Her 4 saniyede bir değiştir
+      });
+
+      window.addEventListener("scroll", function () {
+        const header = document.getElementById("header");
+        const logo = document.getElementById("logo");
+        const links = document.querySelectorAll(".nav-link");
+
+        if (window.scrollY > 50) {
+          header.classList.remove("header-initial");
+          header.classList.add("header-scrolled");
+
+          links.forEach((link) => {
+            link.classList.remove("link-initial");
+            link.classList.add("link-scrolled");
+          });
+
+          // Logoyu değiştir
+          logo.src = "./images/newlogo.png";
+        } else {
+          header.classList.remove("header-scrolled");
+          header.classList.add("header-initial");
+
+          links.forEach((link) => {
+            link.classList.remove("link-scrolled");
+            link.classList.add("link-initial");
+          });
+          // Logoyu eski haline döndür
+          logo.src = "./images/logo.png";
+        }
+      });
+    </script>
+  </body>
+</html>
