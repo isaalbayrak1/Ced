@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    <title>CED Archıtect</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,20 +25,20 @@
       class="header-initial text-black p-4 shadow-md fixed top-0 w-full z-50"
     >
       <div class="container mx-auto flex items-center justify-between">
-        <img id="logo" src="./images/logo.png" alt="Logo" class="h-28 w-auto" />
+        <img id="logo" src="./images/logo.png" alt="Logo" class="h-36 w-auto" />
         <nav class="flex space-x-8 text-lg">
           <a
-            href="#"
+            href="profil.html"
             class="nav-link link-initial poppins-regular hover:bg-gray-200 px-4 py-2 rounded transition duration-300"
             >Profil</a
           >
           <a
-            href="#"
+            href="projeler.html"
             class="nav-link link-initial poppins-regular hover:bg-gray-200 px-4 py-2 rounded transition duration-300"
             >Projeler</a
           >
           <a
-            href="#"
+            href="iletisim.html"
             class="nav-link link-initial poppins-regular hover:bg-gray-200 px-4 py-2 rounded transition duration-300"
             >İletişim</a
           >
@@ -60,7 +60,7 @@
       <div
         class="flex items-center bebas-neue-regular justify-center h-full absolute inset-0"
       >
-        <h1 class="text-white text-4xl md:text-6xl">CED Architect</h1>
+        <h1 class="text-white text-4xl md:text-6xl">CED Archıtect</h1>
       </div>
     </main>
 
@@ -70,7 +70,7 @@
         <!-- Fotoğraf 1 -->
         <div class="text-center">
           <img
-            src="./images/bg.png"
+            src="./images/slider5.png"
             alt="Fotoğraf 1"
             class="mx-auto h-48 w-auto object-cover photo"
           />
@@ -80,7 +80,7 @@
         <!-- Fotoğraf 2 -->
         <div class="text-center">
           <img
-            src="./images/photo.png"
+            src="./images/slider5.png"
             alt="Fotoğraf 2"
             class="mx-auto h-48 w-auto object-cover photo"
           />
@@ -90,7 +90,7 @@
         <!-- Fotoğraf 3 -->
         <div class="text-center">
           <img
-            src="./images/photo.png"
+            src="./images/slider5.png"
             alt="Fotoğraf 3"
             class="mx-auto h-48 w-auto object-cover photo"
           />
@@ -125,21 +125,25 @@
           header.classList.remove("header-initial");
           header.classList.add("header-scrolled");
 
+          // Linkleri beyaz yap
           links.forEach((link) => {
             link.classList.remove("link-initial");
             link.classList.add("link-scrolled");
+            link.style.color = "white";
           });
-
           // Logoyu değiştir
           logo.src = "./images/newlogo.png";
         } else {
           header.classList.remove("header-scrolled");
           header.classList.add("header-initial");
 
+          // Linkleri eski haline döndür
           links.forEach((link) => {
             link.classList.remove("link-scrolled");
             link.classList.add("link-initial");
+            link.style.color = "black";
           });
+
           // Logoyu eski haline döndür
           logo.src = "./images/logo.png";
         }

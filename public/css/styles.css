@@ -85,6 +85,7 @@
   height: 100%;
   transition: transform 1s ease-in-out;
 }
+/* Fotoğraflar için stil */
 .photo {
   filter: grayscale(100%);
   transition: filter 0.3s ease, transform 0.3s ease;
@@ -93,8 +94,7 @@
   filter: grayscale(0%);
   transform: scale(1.05);
 }
-/* Başlığın kaydırmadan önceki stili */
-/* Header başlangıç durumu */
+
 /* Header başlangıç durumu */
 .header-initial {
   background-color: white;
@@ -121,9 +121,25 @@
   transition: color 0.3s ease;
 }
 
+/* Linklerin üzerine gelindiğinde renk değişimi */
+.nav-link {
+  color: black; /* Varsayılan renk siyah */
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+.nav-link:hover {
+  color: white; /* Hover yapıldığında renk siyah */
+  background-color: black; /* Hover yapıldığında arka plan beyaz */
+}
+
+/* Header kaydırıldığında linklerin üzerine gelindiğinde siyah arka plan */
+.header-scrolled .nav-link:hover {
+  color: black; /* Hover yapıldığında renk beyaz */
+  background-color: rgb(147, 136, 136); /* Hover yapıldığında arka plan siyah */
+}
+
 /* Logo boyutları */
 #logo {
-  height: 100px; /* Başlangıçta logo yüksekliği */
+  height: 100; /* Başlangıçta logo yüksekliği */
   transition: height 0.3s ease; /* Logo boyut geçiş efekti */
 }
 
